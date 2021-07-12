@@ -39,6 +39,8 @@ namespace EFCoreLab23.Models
                 entity.Property(e => e.Genre).HasMaxLength(20);
 
                 entity.Property(e => e.Title).HasMaxLength(50);
+
+                //TODO: Runtime? Id?
             });
 
             OnModelCreatingPartial(modelBuilder);
