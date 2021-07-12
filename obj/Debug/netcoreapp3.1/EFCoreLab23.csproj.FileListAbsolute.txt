@@ -77,3 +77,5 @@ D:\GCProjects\Labs & HW\EFCoreLab23\obj\Debug\netcoreapp3.1\EFCoreLab23.csproj.C
 D:\GCProjects\Labs & HW\EFCoreLab23\obj\Debug\netcoreapp3.1\EFCoreLab23.dll
 D:\GCProjects\Labs & HW\EFCoreLab23\obj\Debug\netcoreapp3.1\EFCoreLab23.pdb
 D:\GCProjects\Labs & HW\EFCoreLab23\obj\Debug\netcoreapp3.1\EFCoreLab23.genruntimeconfig.cache
+D:\GCProjects\Labs & HW\EFCoreLab23\obj\Debug\netcoreapp3.1\Razor\Views\Movie\Index.cshtml.g.cs
+D:\GCProjects\Labs & HW\EFCoreLab23\obj\Debug\netcoreapp3.1\Razor\Views\Movie\MovieForm.cshtml.g.cs

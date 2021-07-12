@@ -37,43 +37,42 @@ namespace EFCoreLab23.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult MovieForm(int Id);
+        public IActionResult MovieForm(int Id)
         {
-        if (Id == 0)
+            if (Id == 0)
             {
-            return View(new Movie());
+                return View(new Movie());
             }
-    else
-    {
-Movie foundMovie = _context.Movies.Find(Id);
-    return View(foundMovie);
-}
+            else
+            {
+                Movie foundMovie = _context.Movies.Find(Id);
+                return View(foundMovie);
+            }
         }
 
-public IActionResult SaveMovie(Movie newMovie)
-{
-    if (ModelState.IsValid)
-    {
-        if (newMovie.Id == 0)
+        public IActionResult SaveMovie(Movie newMovie)
         {
-            _context.Movies.Add(newMovie);
-            _context.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                if (newMovie.Id == 0)
+                {
+                    _context.Movies.Add(newMovie);
+                    _context.SaveChanges();
+                }
+                else
+                {
+                    Movie dbMovie = _context.Movies.Find(newMovie.Id);
+                    dbMovie.Title = newMovie.Title;
+                    dbMovie.Genre = newMovie.Genre;
+                    dbMovie.Runtime = newMovie.Runtime;
+
+                    _context.Entry(dbMovie).State = EntityState.Modified;
+                    _context.Update(dbMovie);
+                    _context.SaveChanges();
+                }
+            }
+
+            return RedirectToAction("Index");
         }
-
-        else
-        {
-            Movie dbMovie = _context.Movies.Find(newMovie.Id);
-            dbMovie.Title = newMovie.Title;
-            dbMovie.Genre = newMovie.Genre;
-            dbMovie.Runtime = newMovie.Runtime;
-
-            _context.Entry(dbMovie).State = EntityState.Modified;
-            _context.Update(dbMovie);
-            _context.SaveChanges();
-        }
-    }
-
-    return RedirectToAction("Index");
-}
     }
 }

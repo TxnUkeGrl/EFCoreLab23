@@ -36,11 +36,21 @@ namespace EFCoreLab23.Models
             {
                 entity.ToTable("Movie");
 
-                entity.Property(e => e.Genre).HasMaxLength(20);
+                entity.Property(e => e.Id)
+                .HasColumnName("ID")
+                .HasColumnType("int");
 
-                entity.Property(e => e.Title).HasMaxLength(50);
+                entity.Property(e => e.Title)
+                .HasMaxLength(50)
+                .HasColumnName("Title");
+                
+                entity.Property(e => e.Genre)
+                .HasMaxLength(20)
+                .HasColumnName("Genre");
 
-                //TODO: Runtime? Id?
+                entity.Property(e => e.Runtime)
+                .HasColumnName("Runtime");
+
             });
 
             OnModelCreatingPartial(modelBuilder);
